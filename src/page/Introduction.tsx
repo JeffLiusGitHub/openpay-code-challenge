@@ -33,5 +33,4 @@ const Introduction: FC<Props> = () => {
 		</IntroductionComponent>
 	);
 };
-
 export default Introduction;

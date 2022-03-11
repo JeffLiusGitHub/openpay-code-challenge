@@ -23,9 +23,9 @@ const Frequency: FC<Props> = ({ frequencyArray,setCurrentFrequency }) => {
 	return (
 		<FrequencyContainer>
 			<FrequencyButtonContainer>
-				{frequencyArray.map((frequency: string) => (
+				{frequencyArray?frequencyArray.map((frequency: string) => (
 					<FrequencyButton key={frequency} frequency={frequency} setCurrentFrequency={setCurrentFrequency} />
-				))}
+				)):<p>Loading data error...</p>}
 			</FrequencyButtonContainer>
 		</FrequencyContainer>
 	);

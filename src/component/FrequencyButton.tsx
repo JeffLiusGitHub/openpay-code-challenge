@@ -36,8 +36,9 @@ const FrequencyButton: FC<Props> = ({ frequency, setCurrentFrequency }) => {
 			type="button"
 			onClick={buttonHandler}
 			data-testid={frequency}
+			name={frequency}
 		>
-			{frequency[0].toUpperCase() + frequency.slice(1)}
+			{frequency ? frequency[0].toUpperCase() + frequency.slice(1) : 'default button value'}
 		</FrequencyButtonContainer>
 	);
 };

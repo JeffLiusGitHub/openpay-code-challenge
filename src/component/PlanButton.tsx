@@ -58,11 +58,11 @@ const PlanButton: FC<RemainingButtonType> = ({ remaining, month, amount }) => {
 	return (
 		<PlanButtonContainer>
 			<LeftContainer>
-				<RemainingPayment>{remaining} Remaining payments</RemainingPayment>
-				<TotalMonth>Total plan duration {month} months</TotalMonth>
+				<RemainingPayment>{remaining?remaining:0} Remaining payments</RemainingPayment>
+				<TotalMonth>Total plan duration {month?month:0} months</TotalMonth>
 			</LeftContainer>
 			<RightContainer>
-				<TotalAmount>${amount.toFixed(2)}</TotalAmount>
+				<TotalAmount>${amount?amount.toFixed(2):'0.00'}</TotalAmount>
 			</RightContainer>
 		</PlanButtonContainer>
 	);

@@ -18,8 +18,8 @@ const StepSecondaryTitle = styled.div`
 const Step: FC<Props> = ({primaryTitle,secondaryTitle}) => {
 	return (
 		<StepContainer>
-			<StepPrimaryTitle>{primaryTitle}</StepPrimaryTitle>
-			<StepSecondaryTitle>{secondaryTitle}</StepSecondaryTitle>
+			<StepPrimaryTitle>{primaryTitle?primaryTitle:'primary title'}</StepPrimaryTitle>
+			<StepSecondaryTitle>{secondaryTitle?secondaryTitle:'secondary title'}</StepSecondaryTitle>
 		</StepContainer>
 	);
 };

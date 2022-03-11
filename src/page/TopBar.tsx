@@ -45,7 +45,7 @@ const TopBar: FC<Props> = ({ totalAmount }) => {
 						style={{ width: '40px', display: 'inline-block' }}
 						alt="CartLogo"
 					/>
-					<AmountContainer>${totalAmount}</AmountContainer>
+					<AmountContainer>${totalAmount?totalAmount:'0.00'}</AmountContainer>
 				</LogoContainer>
 			</RightContainer>
 		</TopBarContainer>
