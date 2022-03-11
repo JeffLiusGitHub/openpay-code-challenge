@@ -53,3 +53,41 @@ describe('test component on the page', () => {
 		expect(submitPlanButton).toBeEnabled();
 	});
 });
+
+describe('test user action', () => {
+	test('if user click weekly, 16 remaing payments total plan duration 4 months $7.72 should be rendered on the page', () => {
+		render(<App />);
+		const weeklyButton = screen.getByRole('button', { name: 'Weekly' });
+		userEvent.click(weeklyButton);
+		const remainingText = screen.queryByText('16 Remaining payments');
+		const monthText = screen.queryByText('Total plan duration 4 months');
+		const amountText = screen.queryByText('$7.72');
+		expect(remainingText).toBeInTheDocument();
+		expect(monthText).toBeInTheDocument();
+		expect(amountText).toBeInTheDocument();
+	});
+
+	test('if user click monthly, 3 remaing payments total plan duration 3 months $41.15 should be rendered on the page', () => {
+		render(<App />);
+		const monthlyButton = screen.getByRole('button', { name: 'Monthly' });
+		userEvent.click(monthlyButton);
+		const remainingText = screen.queryByText('3 Remaining payments');
+		const monthText = screen.queryByText('Total plan duration 3 months');
+		const amountText = screen.queryByText('$41.15');
+		expect(remainingText).toBeInTheDocument();
+		expect(monthText).toBeInTheDocument();
+		expect(amountText).toBeInTheDocument();
+	});
+
+	test('if user click fortnightly, not any keywords about remaing payments total plan duration  months will be rendered on the page', () => {
+		render(<App />);
+		const monthlyButton = screen.getByRole('button', { name: 'Fortnightly' });
+		userEvent.click(monthlyButton);
+		const remainingText = screen.queryByText('Remaining payments');
+		const monthText = screen.queryByText('Total plan duration');
+		const amountText = screen.queryByText('$41.15');
+		expect(remainingText).toBeNull();
+		expect(monthText).toBeNull();
+		expect(amountText).toBeNull();
+	});
+});
