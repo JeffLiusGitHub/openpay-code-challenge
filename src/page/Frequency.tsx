@@ -5,7 +5,7 @@ import { FrequencyType } from '../types';
 
 export interface Props {
 	frequencyArray: string[];
-	setCurrentFrequency:React.Dispatch<React.SetStateAction<FrequencyType>>;
+	setCurrentFrequency: React.Dispatch<React.SetStateAction<FrequencyType>>;
 }
 const FrequencyContainer = styled.div`
 	margin-top: 0.7rem;
@@ -19,13 +19,21 @@ const FrequencyButtonContainer = styled.div`
 	flex-direction: row;
 `;
 
-const Frequency: FC<Props> = ({ frequencyArray,setCurrentFrequency }) => {
+const Frequency: FC<Props> = ({ frequencyArray, setCurrentFrequency }) => {
 	return (
 		<FrequencyContainer>
 			<FrequencyButtonContainer>
-				{frequencyArray?frequencyArray.map((frequency: string) => (
-					<FrequencyButton key={frequency} frequency={frequency} setCurrentFrequency={setCurrentFrequency} />
-				)):<p>Loading data error...</p>}
+				{frequencyArray ? (
+					frequencyArray.map((frequency: string) => (
+						<FrequencyButton
+							key={frequency}
+							frequency={frequency}
+							setCurrentFrequency={setCurrentFrequency}
+						/>
+					))
+				) : (
+					<p>Loading data error...</p>
+				)}
 			</FrequencyButtonContainer>
 		</FrequencyContainer>
 	);

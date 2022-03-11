@@ -26,8 +26,7 @@ describe('test Step component', () => {
 	});
 
 	test('input props Step 2 Pick your Plan, expect correct output on the screen', () => {
-		render(<Step primaryTitle={'Step 2'}
-        secondaryTitle={'Pick your Plan'}/>);
+		render(<Step primaryTitle={'Step 2'} secondaryTitle={'Pick your Plan'} />);
 		const mainTitleElement = screen.getByText(/Step 2/i);
 		expect(mainTitleElement).toBeInTheDocument();
 		const secondaryTitleElement = screen.getByText(/Pick your Plan/i);

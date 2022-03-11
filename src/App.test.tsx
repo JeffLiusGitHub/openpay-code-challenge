@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import userEvent from '@testing-library/user-event';
-import { fireEvent } from '@testing-library/react';
+// import { fireEvent } from '@testing-library/react';
 
 describe('test component on the page', () => {
 	test('brand logo, cart logo and amount on the page', () => {
